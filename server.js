@@ -162,7 +162,7 @@ app.post('/api/role', ({ body }, res) => {
   
     const sql = `INSERT INTO role (id, name, salary, department_id)
       VALUES (?,?,?,?)`;
-    const params = [body.id, body.name];
+    const params = [body.id, body.name, body.salary, body.department_id];
   
     db.query(sql, params, (err, result) => {
       if (err) {
@@ -194,7 +194,7 @@ app.post('/api/employee', ({ body }, res) => {
   
     const sql = `INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
       VALUES (?,?,?,?,?)`;
-    const params = [body.id, body.name];
+    const params = [body.id, body.first_name, body.last_name, body.role_id, body.manager_id];
   
     db.query(sql, params, (err, result) => {
       if (err) {
